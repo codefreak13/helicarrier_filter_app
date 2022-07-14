@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders Home correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "bottom": 0,
+      "justifyContent": "center",
+      "left": 0,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+    }
+  }
+  testID="loader"
+>
+  <ActivityIndicator
+    color="#1D1F20"
+    size="large"
+  />
+</View>
+`;
