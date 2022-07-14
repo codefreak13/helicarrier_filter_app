@@ -19,18 +19,22 @@ const useBiodata = () => {
 
   //picker values
   const [form, setForm] = useState({
+    name: '',
     status: '',
     gender: '',
     origin: '',
     type: '',
   });
 
-  const {status, gender, origin, type} = form;
+  const {name, status, gender, origin, type} = form;
 
   //function that takes in the filter options from the filter bar and filters
   const filterDataWithParams = () => {
     const selectedData = getDataFromApi
       ?.filter((item: ItemProps) => {
+        return name ? name === item.name : item.name;
+      })
+      .filter((item: ItemProps) => {
         return status ? status === item.status : item.name;
       })
       .filter((item: ItemProps) => {
@@ -61,7 +65,7 @@ const useBiodata = () => {
       });
       setRenderedData(selectedData ?? []);
     },
-    [status, gender, origin, type, searchParam],
+    [status, name, gender, origin, type, searchParam],
   );
 
   //delays data entry for a period and memoizes the search function
@@ -84,6 +88,7 @@ const useBiodata = () => {
   //clears filter options
   const clearSelection = () => {
     setForm({
+      name: '',
       status: '',
       gender: '',
       origin: '',
@@ -117,6 +122,7 @@ const useBiodata = () => {
     gender,
     status,
     origin,
+    name,
     type,
     error,
   };

@@ -1,3 +1,10 @@
+const nameData = [
+  {label: 'Pripudlian', value: 'Pripudlian'},
+  {label: 'Plutonian Host', value: 'Plutonian Host'},
+  {label: 'Judge', value: 'Judge'},
+  {label: 'Bully', value: 'Bully'},
+];
+
 const statusData = [
   {label: 'Alive', value: 'Alive'},
   {label: 'Dead', value: 'Dead'},
@@ -21,4 +28,4 @@ const typeData = [
   {label: 'Game', value: 'Game'},
 ];
 
-export {statusData, genderData, originData, typeData};
+export {nameData, statusData, genderData, originData, typeData};

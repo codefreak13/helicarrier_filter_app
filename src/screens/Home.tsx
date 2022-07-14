@@ -4,7 +4,7 @@ import {Header, ListView, Loader} from '../components';
 import {BoldText, Button, Input, PickerSelect} from '../ui';
 import {COLORS, hp} from '../utils/Utils';
 import {useBiodata} from '../hooks';
-import {genderData, originData, statusData, typeData} from '../data';
+import {nameData, genderData, originData, statusData, typeData} from '../data';
 
 const Home = () => {
   const {
@@ -19,6 +19,7 @@ const Home = () => {
     status,
     origin,
     error,
+    name,
     type,
   } = useBiodata();
 
@@ -38,6 +39,12 @@ const Home = () => {
             onClear={onClearText}
           />
           <View style={styles.filterBar}>
+            <PickerSelect
+              items={nameData}
+              value={name}
+              placeholder="Name"
+              onValueChange={onChangeFormValue('name')}
+            />
             <PickerSelect
               items={statusData}
               value={status}
@@ -63,7 +70,7 @@ const Home = () => {
               onValueChange={onChangeFormValue('type')}
             />
           </View>
-          {(!!status || !!gender || !!origin || !!type) && (
+          {(!!name || !!status || !!gender || !!origin || !!type) && (
             <Button
               title="Clear Selection(s)"
               onPress={clearSelection}
